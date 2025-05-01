@@ -66,7 +66,7 @@
 
 <script>
     document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
+        
         // Aquí iría el código de envío
         alert('¡Gracias por confirmar! Te esperamos.');
     });
@@ -118,7 +118,7 @@
                                 <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">Nos vamos a casar!</h3>
                             </div>
                             <button type="button" class="btn-play mx-auto" data-toggle="modal"
-                                data-src="https://www.youtube.com/watch?v=kgLSwfq81K4&list=RDkgLSwfq81K4&start_radio=1&ab_channel=Artemas" data-target="#videoModal">
+                                data-src="https://www.youtube.com/embed/kgLSwfq81K4" data-target="#videoModal"> <!-- 👈 Usa /embed/ -->
                                 <span></span>
                             </button>
                         </div>
@@ -133,7 +133,7 @@
                                 <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">Nos vamos a casar!</h3>
                             </div>
                             <button type="button" class="btn-play mx-auto" data-toggle="modal"
-                                data-src="https://www.youtube.com/watch?v=kgLSwfq81K4&list=RDkgLSwfq81K4&start_radio=1&ab_channel=Artemas" data-target="#videoModal">
+                                 data-src="https://www.youtube.com/embed/kgLSwfq81K4" data-target="#videoModal"> <!-- 👈 Usa /embed/ -->
                                 <span></span>
                             </button>
                         </div>
@@ -444,19 +444,19 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center">
-                        <form>
-                            <form action="https://formspree.io/f/xdkgavvr" method="POST"> <!-- 👈¡Aquí! -->
+                       
+                        <form action="https://formspree.io/f/xdkgavvr" method="POST"> <!-- 👈¡Aquí! -->
                             <div class="form-row">
                                 <div class="form-group col-sm-6">
-                                    <input type="text" name="nombre" placeholder="Tu nombre">
+                                    <input type="text" class="form-control bg-secondary border-0 py-4 px-3" name="nombre" placeholder="Tu nombre"> <!-- ✅ name añadido -->
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input type="email" name="email" placeholder="Tu correo">
+                                    <input type="email" class="form-control bg-secondary border-0 py-4 px-3" name="email" placeholder="Tu correo"> <!-- ✅ name añadido -->
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-6">
-                                    <select class="form-control bg-secondary border-0" style="height: 52px;">
+                                    <select class="form-control bg-secondary border-0" name="num_invitados" style="height: 52px;"> <!-- ✅ name añadido -->
                                         <option>Numero de Invitados</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -465,15 +465,15 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <select class="form-control bg-secondary border-0" style="height: 52px;">
-                                        <option>Asistiré</option>
-                                        <option>No asistiré</option> 
+                                    <select class="form-control bg-secondary border-0" name="asistencia" style="height: 52px;"> <!-- ✅ name añadido -->
+                                        <option value="Asistiré">Asistiré</option> <!-- ✅ Añade value -->
+                                        <option value="No asistiré">No asistiré</option>
                                    <!-- <option>Wedding Party</option> -->
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control bg-secondary border-0 py-2 px-3" rows="5" placeholder="Mensaje (opcional)" ></textarea>
+                                <textarea class="form-control bg-secondary border-0 py-2 px-3" name="mensaje" rows="5" placeholder="Mensaje (opcional)"></textarea> <!-- ✅ name añadido -->
                             </div>
                             <div>
                                 <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Enviar</button>
