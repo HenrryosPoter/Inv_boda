@@ -24,6 +24,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+
 </head>
 
 <script>
@@ -51,12 +53,32 @@
     updateCountdown();  // primera llamada inmediata
     </script>
     
+    <script>
+        $(document).ready(function(){
+            $('#videoModal').on('show.bs.modal', function (e) {
+                $("#video").attr('src', $(e.relatedTarget).data('src'));
+            });
+            $('#videoModal').on('hide.bs.modal', function () {
+                $("#video").attr('src', '');
+            });
+        });
+        </script>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Aquí iría el código de envío
+        alert('¡Gracias por confirmar! Te esperamos.');
+    });
+    </script>
+
+
 
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand d-block d-lg-none">
+        <a href="https://www.facebook.com/profile.php?id=100010783896686" class="btn btn-outline-primary btn-square">
             <h1 class="font-secondary text-white mb-n2">Freddy <span class="text-primary">&</span> Marcela</h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -281,7 +303,7 @@
                         <img class="img-fluid mb-4" src="img/event-1.jpg" alt="">
                         <h4 class="mb-3">La Misa</h4>
                         <p class="mb-2">Ricaurte, Cuenca, Ecuador</p>
-                        <p class="mb-0">17:00PM - 18:00PM</p>
+                        <p class="mb-0">17:00 - 18:00</p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -289,7 +311,7 @@
                         <img class="img-fluid mb-4" src="img/event-2.jpg" alt="">
                         <h4 class="mb-3">Recepción</h4>
                         <p class="mb-2">Ricaurte, Cuenca, Ecuador</p>
-                        <p class="mb-0">19:00PM - 2:00AM</p>
+                        <p class="mb-0">19:00 - 2:00</p>
                     </div>
                 </div>
             </div>
@@ -423,12 +445,13 @@
                 <div class="col-lg-8">
                     <div class="text-center">
                         <form>
+                            <form action="https://formspree.io/f/xdkgavvr" method="POST"> <!-- 👈¡Aquí! -->
                             <div class="form-row">
                                 <div class="form-group col-sm-6">
-                                    <input type="text" class="form-control bg-secondary border-0 py-4 px-3" placeholder="Tu nombre"/>
+                                    <input type="text" name="nombre" placeholder="Tu nombre">
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input type="email" class="form-control bg-secondary border-0 py-4 px-3" placeholder="Tu correo"/>
+                                    <input type="email" name="email" placeholder="Tu correo">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -450,7 +473,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control bg-secondary border-0 py-2 px-3" rows="5" placeholder="Mensaje (opcional)" required="required"></textarea>
+                                <textarea class="form-control bg-secondary border-0 py-2 px-3" rows="5" placeholder="Mensaje (opcional)" ></textarea>
                             </div>
                             <div>
                                 <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Enviar</button>
