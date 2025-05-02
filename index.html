@@ -194,38 +194,24 @@
 
 
 <!-- ========== Countdown Timer ========== -->
-<section id="countdown" class="container-fluid py-5" style="background-color: #f8f9fa;">
-    <div class="container py-5">
-        <div class="section-title position-relative text-center">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Fecha Especial</h6>
-            <h1 class="font-secondary display-4">Faltan para nuestra boda</h1>
-            <i class="far fa-heart text-dark"></i>
+<!-- HTML -->
+<section id="countdown">
+    <div class="countdown-container">
+        <div class="countdown-item">
+            <div class="number" id="days">00</div>
+            <div class="label">Días</div>
         </div>
-        <div id="timer" class="row justify-content-center mt-5">
-            <div class="col-md-2 col-sm-3 col-6 text-center mb-4">
-                <div class="p-3 bg-white rounded shadow">
-                    <div id="days" class="display-4 text-primary font-weight-bold">00</div>
-                    <div class="text-uppercase font-weight-bold mt-2">Días</div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3 col-6 text-center mb-4">
-                <div class="p-3 bg-white rounded shadow">
-                    <div id="hours" class="display-4 text-primary font-weight-bold">00</div>
-                    <div class="text-uppercase font-weight-bold mt-2">Horas</div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3 col-6 text-center mb-4">
-                <div class="p-3 bg-white rounded shadow">
-                    <div id="minutes" class="display-4 text-primary font-weight-bold">00</div>
-                    <div class="text-uppercase font-weight-bold mt-2">Minutos</div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3 col-6 text-center mb-4">
-                <div class="p-3 bg-white rounded shadow">
-                    <div id="seconds" class="display-4 text-primary font-weight-bold">00</div>
-                    <div class="text-uppercase font-weight-bold mt-2">Segundos</div>
-                </div>
-            </div>
+        <div class="countdown-item">
+            <div class="number" id="hours">00</div>
+            <div class="label">Horas</div>
+        </div>
+        <div class="countdown-item">
+            <div class="number" id="minutes">00</div>
+            <div class="label">Minutos</div>
+        </div>
+        <div class="countdown-item">
+            <div class="number" id="seconds">00</div>
+            <div class="label">Segundos</div>
         </div>
     </div>
 </section>
