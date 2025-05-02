@@ -38,7 +38,10 @@
     function updateCountdown() {
       const now = new Date();
       const diff = eventDate - now;
-      if (diff < 0) return clearInterval(timerInterval);
+      if (diff < 0) {
+        document.getElementById('timer').innerHTML = '<div class="col-12 text-center"><h2 class="text-primary">¡El gran día ha llegado!</h2></div>';
+        return clearInterval(timerInterval);
+      }
     
       const days    = Math.floor(diff / (1000*60*60*24));
       const hours   = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
@@ -54,6 +57,19 @@
     // Actualiza cada segundo
     const timerInterval = setInterval(updateCountdown, 1000);
     updateCountdown();  // primera llamada inmediata
+    
+    // Añadir efecto de animación al cambiar los números
+    document.addEventListener('DOMContentLoaded', function() {
+      const timerElements = document.querySelectorAll('#days, #hours, #minutes, #seconds');
+      timerElements.forEach(element => {
+        element.addEventListener('change', function() {
+          element.classList.add('pulse');
+          setTimeout(() => {
+            element.classList.remove('pulse');
+          }, 500);
+        });
+      });
+    });
     </script>
     
     <script>
@@ -178,25 +194,37 @@
 
 
 <!-- ========== Countdown Timer ========== -->
-<section id="countdown" style="text-align:center; padding:3rem; background-color: #f8f9fa; margin: 2rem 0;">
-    <h2 class="font-secondary mb-4">Faltan para nuestra boda:</h2>
-    <div id="timer" style="font-size: 2.5rem; font-weight: bold; font-family: 'Montserrat', sans-serif;">
-        <div class="d-flex justify-content-center">
-            <div class="px-3">
-                <span id="days" class="text-primary">00</span>
-                <div class="small text-muted">días</div>
+<section id="countdown" class="container-fluid py-5" style="background-color: #f8f9fa;">
+    <div class="container py-5">
+        <div class="section-title position-relative text-center">
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Fecha Especial</h6>
+            <h1 class="font-secondary display-4">Faltan para nuestra boda</h1>
+            <i class="far fa-heart text-dark"></i>
+        </div>
+        <div id="timer" class="row justify-content-center mt-5">
+            <div class="col-md-2 col-sm-3 col-6 text-center mb-4">
+                <div class="p-3 bg-white rounded shadow">
+                    <div id="days" class="display-4 text-primary font-weight-bold">00</div>
+                    <div class="text-uppercase font-weight-bold mt-2">Días</div>
+                </div>
             </div>
-            <div class="px-3">
-                <span id="hours" class="text-primary">00</span>
-                <div class="small text-muted">horas</div>
+            <div class="col-md-2 col-sm-3 col-6 text-center mb-4">
+                <div class="p-3 bg-white rounded shadow">
+                    <div id="hours" class="display-4 text-primary font-weight-bold">00</div>
+                    <div class="text-uppercase font-weight-bold mt-2">Horas</div>
+                </div>
             </div>
-            <div class="px-3">
-                <span id="minutes" class="text-primary">00</span>
-                <div class="small text-muted">minutos</div>
+            <div class="col-md-2 col-sm-3 col-6 text-center mb-4">
+                <div class="p-3 bg-white rounded shadow">
+                    <div id="minutes" class="display-4 text-primary font-weight-bold">00</div>
+                    <div class="text-uppercase font-weight-bold mt-2">Minutos</div>
+                </div>
             </div>
-            <div class="px-3">
-                <span id="seconds" class="text-primary">00</span>
-                <div class="small text-muted">segundos</div>
+            <div class="col-md-2 col-sm-3 col-6 text-center mb-4">
+                <div class="p-3 bg-white rounded shadow">
+                    <div id="seconds" class="display-4 text-primary font-weight-bold">00</div>
+                    <div class="text-uppercase font-weight-bold mt-2">Segundos</div>
+                </div>
             </div>
         </div>
     </div>
