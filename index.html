@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Agregados -->
-     
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" as="style">  <!-- [Faltante] -->
     
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -33,6 +33,7 @@
 
 <script>
     // Fecha objetivo: Año, mes-1 (0=Enero), día, hora, min, seg
+    const weddingDate = new Date('2024-12-31T17:00:00'); // Formato ISO necesario
     const eventDate = new Date(2025, 5, 21, 15, 0, 0); // 21 Jun 2025, 15:00
     
     function updateCountdown() {
@@ -178,25 +179,25 @@
 
 
 <!-- ========== Countdown Timer ========== -->
-<section id="countdown" style="text-align:center; padding:3rem; background-color: #f8f9fa; margin: 2rem 0;">
-    <h2 class="font-secondary mb-4">Faltan para nuestra boda:</h2>
-    <div id="timer" style="font-size: 2.5rem; font-weight: bold; font-family: 'Montserrat', sans-serif;">
-        <div class="d-flex justify-content-center">
-            <div class="px-3">
-                <span id="days" class="text-primary">00</span>
-                <div class="small text-muted">días</div>
+<section id="countdown" class="container-fluid py-4 bg-light">
+    <div class="container text-center py-4">
+        <h2 class="font-secondary mb-3">Faltan para nuestra boda:</h2>
+        <div class="countdown-grid">
+            <div class="countdown-item">
+                <div class="number text-primary" id="days">00</div>
+                <div class="label text-muted small">Días</div>
             </div>
-            <div class="px-3">
-                <span id="hours" class="text-primary">00</span>
-                <div class="small text-muted">horas</div>
+            <div class="countdown-item">
+                <div class="number text-primary" id="hours">00</div>
+                <div class="label text-muted small">Horas</div>
             </div>
-            <div class="px-3">
-                <span id="minutes" class="text-primary">00</span>
-                <div class="small text-muted">minutos</div>
+            <div class="countdown-item">
+                <div class="number text-primary" id="minutes">00</div>
+                <div class="label text-muted small">Minutos</div>
             </div>
-            <div class="px-3">
-                <span id="seconds" class="text-primary">00</span>
-                <div class="small text-muted">segundos</div>
+            <div class="countdown-item">
+                <div class="number text-primary" id="seconds">00</div>
+                <div class="label text-muted small">Segundos</div>
             </div>
         </div>
     </div>
