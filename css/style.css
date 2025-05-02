@@ -9758,68 +9758,54 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 /* ========== Countdown Timer Styles ========== */
-#timer {
-  display: flex;
-  justify-content: center;
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  padding: 1rem 0;
-  flex-wrap: nowrap;
-  overflow-x: hidden;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .countdown-item {
-  flex: 1;
-  min-width: 22%;
-  text-align: center;
-  padding: 1.5rem 1rem;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.countdown-item .display-4 {
-  font-size: calc(1.5rem + 1.5vw);
+.number {
+  font-size: calc(1.5rem + 1vw);
   font-weight: 700;
-  color: #121F38;
   line-height: 1.2;
 }
 
-.countdown-item .text-uppercase {
-  font-family: 'Montserrat', sans-serif;
-  font-size: calc(0.6rem + 0.5vw);
-  color: #818491;
+.label {
+  font-size: calc(0.7rem + 0.3vw);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
+  .countdown-grid {
+      gap: 0.5rem;
+      padding: 0 1rem;
+  }
+  
   .countdown-item {
-    padding: 1rem 0.5rem !important;
-    min-width: 24% !important;
+      padding: 1rem;
   }
   
-  .countdown-item .display-4 {
-    font-size: calc(1rem + 1.2vw) !important;
-  }
-  
-  .countdown-item .text-uppercase {
-    font-size: calc(0.5rem + 0.6vw) !important;
+  .number {
+      font-size: calc(1.2rem + 0.5vw);
   }
 }
 
 @media (max-width: 480px) {
-  .countdown-item {
-    padding: 0.8rem 0.3rem !important;
-    min-width: 23% !important;
+  .number {
+      font-size: 1.1rem;
   }
   
-  .countdown-item .display-4 {
-    font-size: calc(0.8rem + 1vw) !important;
-  }
-  
-  .countdown-item .text-uppercase {
-    font-size: 0.6rem !important;
+  .label {
+      font-size: 0.6rem;
   }
 }
