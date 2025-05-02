@@ -9774,6 +9774,12 @@ a.text-dark:hover, a.text-dark:focus {
 #timer {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+#timer::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 #timer .number {
@@ -9801,11 +9807,23 @@ a.text-dark:hover, a.text-dark:focus {
     font-size: 2rem;
   }
   
+  #timer {
+    justify-content: flex-start !important;
+    margin: 0 -15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+  }
+  
+  #timer > div {
+    min-width: 90px;
+    margin: 0 5px;
+  }
+  
   #timer .number {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   
   #timer .timer-label {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 }
