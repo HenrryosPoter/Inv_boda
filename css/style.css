@@ -9812,18 +9812,21 @@ a.text-dark:hover, a.text-dark:focus {
     margin: 0 -15px;
     overflow-x: auto;
     padding-bottom: 15px;
+    display: flex;
+    flex-wrap: nowrap;
   }
   
   #timer > div {
-    min-width: 90px;
-    margin: 0 5px;
+    min-width: 140px !important;
+    margin: 0 8px;
+    flex: 0 0 auto;
   }
   
   #timer .number {
-    font-size: 1.8rem;
+    font-size: 2.5rem !important;
   }
   
   #timer .timer-label {
-    font-size: 0.7rem;
+    font-size: 0.8rem !important;
   }
 }
