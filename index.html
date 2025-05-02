@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Agregados -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+     
     
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -38,10 +38,7 @@
     function updateCountdown() {
       const now = new Date();
       const diff = eventDate - now;
-      if (diff < 0) {
-        document.getElementById('timer').innerHTML = '<div class="col-12 text-center"><h2 class="text-primary">¡El gran día ha llegado!</h2></div>';
-        return clearInterval(timerInterval);
-      }
+      if (diff < 0) return clearInterval(timerInterval);
     
       const days    = Math.floor(diff / (1000*60*60*24));
       const hours   = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
@@ -57,19 +54,6 @@
     // Actualiza cada segundo
     const timerInterval = setInterval(updateCountdown, 1000);
     updateCountdown();  // primera llamada inmediata
-    
-    // Añadir efecto de animación al cambiar los números
-    document.addEventListener('DOMContentLoaded', function() {
-      const timerElements = document.querySelectorAll('#days, #hours, #minutes, #seconds');
-      timerElements.forEach(element => {
-        element.addEventListener('change', function() {
-          element.classList.add('pulse');
-          setTimeout(() => {
-            element.classList.remove('pulse');
-          }, 500);
-        });
-      });
-    });
     </script>
     
     <script>
@@ -194,24 +178,26 @@
 
 
 <!-- ========== Countdown Timer ========== -->
-<!-- HTML -->
-<section id="countdown">
-    <div class="countdown-container">
-        <div class="countdown-item">
-            <div class="number" id="days">00</div>
-            <div class="label">Días</div>
-        </div>
-        <div class="countdown-item">
-            <div class="number" id="hours">00</div>
-            <div class="label">Horas</div>
-        </div>
-        <div class="countdown-item">
-            <div class="number" id="minutes">00</div>
-            <div class="label">Minutos</div>
-        </div>
-        <div class="countdown-item">
-            <div class="number" id="seconds">00</div>
-            <div class="label">Segundos</div>
+<section id="countdown" style="text-align:center; padding:3rem; background-color: #f8f9fa; margin: 2rem 0;">
+    <h2 class="font-secondary mb-4">Faltan para nuestra boda:</h2>
+    <div id="timer" style="font-size: 2.5rem; font-weight: bold; font-family: 'Montserrat', sans-serif;">
+        <div class="d-flex justify-content-center">
+            <div class="px-3">
+                <span id="days" class="text-primary">00</span>
+                <div class="small text-muted">días</div>
+            </div>
+            <div class="px-3">
+                <span id="hours" class="text-primary">00</span>
+                <div class="small text-muted">horas</div>
+            </div>
+            <div class="px-3">
+                <span id="minutes" class="text-primary">00</span>
+                <div class="small text-muted">minutos</div>
+            </div>
+            <div class="px-3">
+                <span id="seconds" class="text-primary">00</span>
+                <div class="small text-muted">segundos</div>
+            </div>
         </div>
     </div>
 </section>

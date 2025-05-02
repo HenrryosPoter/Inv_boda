@@ -9759,15 +9759,19 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* ========== Countdown Timer Styles ========== */
 #timer {
-  gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   padding: 1rem 0;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
 }
 
 .countdown-item {
   flex: 1;
-  min-width: 180px;
+  min-width: 22%;
   text-align: center;
-  padding: 1.5rem;
+  padding: 1.5rem 1rem;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -9776,45 +9780,46 @@ a.text-dark:hover, a.text-dark:focus {
 
 .countdown-item .display-4 {
   font-size: calc(1.5rem + 1.5vw);
+  font-weight: 700;
+  color: #121F38;
   line-height: 1.2;
 }
 
 .countdown-item .text-uppercase {
+  font-family: 'Montserrat', sans-serif;
   font-size: calc(0.6rem + 0.5vw);
+  color: #818491;
+  text-transform: uppercase;
   letter-spacing: 1px;
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
   .countdown-item {
-      min-width: 160px;
-      padding: 1rem;
+    padding: 1rem 0.5rem !important;
+    min-width: 24% !important;
   }
   
   .countdown-item .display-4 {
-      font-size: 1.8rem;
+    font-size: calc(1rem + 1.2vw) !important;
   }
   
   .countdown-item .text-uppercase {
-      font-size: 0.7rem;
+    font-size: calc(0.5rem + 0.6vw) !important;
   }
 }
 
-@media (max-width: 576px) {
-  #timer {
-      gap: 0.8rem;
-      padding: 0.5rem;
-  }
-  
+@media (max-width: 480px) {
   .countdown-item {
-      min-width: 23%;
-      padding: 0.8rem 0.5rem;
+    padding: 0.8rem 0.3rem !important;
+    min-width: 23% !important;
   }
   
   .countdown-item .display-4 {
-      font-size: 1.4rem;
+    font-size: calc(0.8rem + 1vw) !important;
   }
   
   .countdown-item .text-uppercase {
-      font-size: 0.6rem;
+    font-size: 0.6rem !important;
   }
 }
