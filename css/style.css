@@ -27,11 +27,13 @@
   --danger: #dc3545;
   --light: #FFFFFF;
   --dark: #121F38;
+  --red1: #760409;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+
   --font-family-sans-serif: "Montserrat", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -9811,173 +9813,120 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 /* ========== Story Section Styles ========== */
-/* Story Section */
+/* Estilos CSS avanzados */
 .story-section {
-  background: #fff;
+  background: linear-gradient(45deg, #fff5f5 0%, #f8f9fa 100%);
+  padding: 8rem 0;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, #e83e8c, #6f42c1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.vintage-frame {
   position: relative;
-  overflow: hidden;
-}
-
-.section-title-deco-left,
-.section-title-deco-right {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat; /* Agregar SVG floral */
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.section-title-deco-left { left: -100px; }
-.section-title-deco-right { right: -100px; }
-
-.story-content {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  position: relative;
-  transition: all 0.4s ease;
-  z-index: 2;
-}
-
-.story-content:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-}
-
-.floral-deco-top,
-.floral-deco-bottom {
-  position: absolute;
-  width: 100%;
-  height: 30px;
-  background: url('data:image/svg+xml;utf8,<svg ...>') repeat-x; /* Patrón floral */
-}
-
-.floral-deco-top { top: -15px; }
-.floral-deco-bottom { bottom: -15px; }
-
-.story-frame {
-  position: relative;
-  padding: 15px;
+  padding: 1rem;
   background: #fff;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transform: rotate(-2deg);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1);
 }
 
-.frame-border {
+.vintage-frame::after {
+  content: '';
   position: absolute;
   top: -10px;
   left: -10px;
   right: -10px;
   bottom: -10px;
-  border: 2px solid #e83e8c;
+  border: 2px solid rgba(232,62,140,0.3);
   border-radius: 20px;
   z-index: -1;
 }
 
-.story-text {
-  border-left: 3px solid #e83e8c;
-  padding-left: 2rem;
-  margin-left: 1.5rem;
+.speech-bubble {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.groom-speech {
+  border-right: 5px solid #e83e8c;
+  margin-right: -30px;
+}
+
+.bride-speech {
+  border-left: 5px solid #6f42c1;
+  margin-left: -30px;
+}
+
+.deco-floral-left, .deco-floral-right {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat;
+  opacity: 0.15;
+}
+
+.intermediate-section {
+  padding: 4rem 0;
+}
+
+.intermediate-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 5px solid #fff;
+  transform: rotate(3deg);
+  z-index: 2;
   position: relative;
 }
 
-.story-text::before {
-  content: "❤";
+.timeline-connector {
   position: absolute;
-  left: -15px;
-  top: -10px;
-  color: #e83e8c;
-  font-size: 1.5rem;
+  height: 100%;
+  width: 4px;
+  background: #e83e8c;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 1;
 }
 
-.signature {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.8rem;
-  color: #e83e8c;
-  text-align: right;
-}
-
-.middle-section {
-  padding: 40px 0;
-  position: relative;
-}
-
-.deco-hearts {
+/* Efecto de pétalos */
+.petals-overlay {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat; /* Corazones decorativos */
-  animation: float 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.section-divider {
-  position: relative;
-  margin: 2rem 0;
-}
-
-.section-divider::before {
-  content: "";
+.petal {
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #e83e8c;
+  width: 15px;
+  height: 15px;
+  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat;
+  animation: fall linear infinite;
 }
 
-.divider-text {
-  position: relative;
-  display: inline-block;
-  background: #fff;
-  padding: 0 1.5rem;
-  font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
-  color: #e83e8c;
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@media (max-width: 768px) {
-  .story-content {
-      margin-top: 2rem;
+@media (max-width: 992px) {
+  .speech-bubble {
+      margin: 0 !important;
   }
-  
-  .story-frame {
-      margin: 0 15px;
+  .vintage-frame {
+      transform: none;
+      margin-bottom: 2rem;
   }
-  
-  .middle-section img {
-      width: 200px !important;
-      height: 200px !important;
-  }
-}
-
-/* estilos SVG florales en style.css */
-.section-title-deco-left,
-.section-title-deco-right {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23e83e8c" d="M50 0Q40 20 30 30 20 40 0 50 20 60 30 70 40 80 50 100 60 80 70 70 80 60 100 50 80 40 70 30 60 20 50 0Z"/></svg>');
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.floral-deco-top,
-.floral-deco-bottom {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30"><path fill="%23e83e8c" d="M0 0 Q25 15 50 0 T100 0 L100 5 Q75 20 50 5 T0 5Z"/></svg>') repeat-x;
-}
-
-.deco-hearts {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23e83e8c" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
-    background-size: 40px;
-    opacity: 0.2;
-}
-
-.floral-border {
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23e83e8c" d="M50 0Q40 20 30 30 20 40 0 50 20 60 30 70 40 80 50 100 60 80 70 70 80 60 100 50 80 40 70 30 60 20 50 0Z"/></svg>');
 }
