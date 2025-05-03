@@ -136,3 +136,45 @@
     
 })(jQuery);
 
+// main.js - Efecto de pétalos
+function createPetals() {
+    const petalContainer = document.querySelector('.petals-overlay');
+    const petalCount = 30;
+    
+    for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        
+        // Posición aleatoria
+        const startPosition = Math.random() * 100;
+        const animationDuration = 8 + Math.random() * 5;
+        const delay = Math.random() * 5;
+        
+        petal.style.left = `${startPosition}%`;
+        petal.style.animation = `fall ${animationDuration}s ${delay}s infinite`;
+        
+        // Efecto hover
+        petal.addEventListener('mouseenter', () => {
+            petal.style.transform = 'scale(1.2)';
+        });
+        
+        petal.addEventListener('mouseleave', () => {
+            petal.style.transform = 'scale(1)';
+        });
+        
+        petalContainer.appendChild(petal);
+    }
+}
+
+// Inicialización
+document.addEventListener('DOMContentLoaded', () => {
+    createPetals();
+    
+    // Efecto de aparición progresiva
+    ScrollReveal().reveal('.speech-bubble, .vintage-frame', {
+        delay: 200,
+        distance: '50px',
+        origin: 'bottom',
+        interval: 200
+    });
+});

@@ -9816,7 +9816,7 @@ a.text-dark:hover, a.text-dark:focus {
 /* Estilos CSS avanzados */
 .story-section {
   background: linear-gradient(45deg, #fff5f5 0%, #f8f9fa 100%);
-  padding: 8rem 0;
+  padding: 4rem 0;
 }
 
 .text-gradient {
