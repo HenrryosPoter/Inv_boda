@@ -9818,94 +9818,140 @@ a.text-dark:hover, a.text-dark:focus {
   overflow: hidden;
 }
 
-.story-section::before {
-  content: '';
+.section-title-deco-left,
+.section-title-deco-right {
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: 2px;
-  height: 100%;
-  background: #e83e8c;
-  transform: translateX(-50%);
-}
-
-.divider {
   width: 80px;
-  height: 3px;
-  background: #e83e8c;
+  height: 80px;
+  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat; /* Agregar SVG floral */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.story-item {
-  position: relative;
-  z-index: 1;
-}
+.section-title-deco-left { left: -100px; }
+.section-title-deco-right { right: -100px; }
 
 .story-content {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  z-index: 2;
 }
 
 .story-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.floral-deco-top,
+.floral-deco-bottom {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background: url('data:image/svg+xml;utf8,<svg ...>') repeat-x; /* Patrón floral */
+}
+
+.floral-deco-top { top: -15px; }
+.floral-deco-bottom { bottom: -15px; }
+
+.story-frame {
+  position: relative;
+  padding: 15px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.frame-border {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid #e83e8c;
+  border-radius: 20px;
+  z-index: -1;
 }
 
 .story-text {
   border-left: 3px solid #e83e8c;
-  padding-left: 1.5rem;
-  margin-left: 1rem;
-}
-
-.story-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #6c757d;
-}
-
-.timeline-divider {
-  height: 50px;
-  width: 2px;
-  background: #e83e8c;
-  margin: 2rem auto;
+  padding-left: 2rem;
+  margin-left: 1.5rem;
   position: relative;
 }
 
-.timeline-divider::after {
-  content: '❤';
+.story-text::before {
+  content: "❤";
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: -15px;
+  top: -10px;
   color: #e83e8c;
+  font-size: 1.5rem;
+}
+
+.signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: #e83e8c;
+  text-align: right;
+}
+
+.middle-section {
+  padding: 40px 0;
+  position: relative;
+}
+
+.deco-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat; /* Corazones decorativos */
+  animation: float 3s ease-in-out infinite;
+}
+
+.section-divider {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.section-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e83e8c;
+}
+
+.divider-text {
+  position: relative;
+  display: inline-block;
   background: #fff;
-  padding: 0 10px;
+  padding: 0 1.5rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #e83e8c;
 }
 
-.story-image img {
-  transition: transform 0.3s ease;
-}
-
-.story-image:hover img {
-  transform: scale(1.03);
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 @media (max-width: 768px) {
-  .story-section::before {
-      display: none;
-  }
-  
   .story-content {
-      margin-top: 1rem;
+      margin-top: 2rem;
   }
   
-  .story-text {
-      margin-left: 0;
-      padding-left: 1rem;
+  .story-frame {
+      margin: 0 15px;
   }
   
-  .timeline-divider {
-      height: 30px;
+  .middle-section img {
+      width: 200px !important;
+      height: 200px !important;
   }
 }
