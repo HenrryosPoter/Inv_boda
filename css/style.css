@@ -9955,3 +9955,29 @@ a.text-dark:hover, a.text-dark:focus {
       height: 200px !important;
   }
 }
+
+/* estilos SVG florales en style.css */
+.section-title-deco-left,
+.section-title-deco-right {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23e83e8c" d="M50 0Q40 20 30 30 20 40 0 50 20 60 30 70 40 80 50 100 60 80 70 70 80 60 100 50 80 40 70 30 60 20 50 0Z"/></svg>');
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.floral-deco-top,
+.floral-deco-bottom {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30"><path fill="%23e83e8c" d="M0 0 Q25 15 50 0 T100 0 L100 5 Q75 20 50 5 T0 5Z"/></svg>') repeat-x;
+}
+
+.deco-hearts {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23e83e8c" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+    background-size: 40px;
+    opacity: 0.2;
+}
+
+.floral-border {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23e83e8c" d="M50 0Q40 20 30 30 20 40 0 50 20 60 30 70 40 80 50 100 60 80 70 70 80 60 100 50 80 40 70 30 60 20 50 0Z"/></svg>');
+}
