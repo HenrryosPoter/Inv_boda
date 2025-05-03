@@ -113,5 +113,26 @@
         }
     });
     
+    // Form validation with Bootstrap
+    $(document).ready(function() {
+        $('form').on('submit', function(e) {
+            const form = $(this)[0];
+            
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            $(this).addClass('was-validated');
+            
+            if (form.checkValidity()) {
+                e.preventDefault(); // Remove in production
+                alert('¡Gracias por confirmar! Te esperamos.');
+                form.reset();
+                $(this).removeClass('was-validated');
+            }
+        });
+    });
+    
 })(jQuery);
 
