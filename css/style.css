@@ -9822,7 +9822,9 @@ a.text-dark:hover, a.text-dark:focus {
 /* Estilos CSS avanzados */
 .story-section {
   background: linear-gradient(45deg, #fff5f5 0%, #f8f9fa 100%);
-  padding: 4rem 0;
+  padding: 100px 0; /* Aumentado para dar espacio a los arreglos florales */
+  position: relative;
+  overflow: visible; /* Permite que los elementos se salgan del contenedor */
 }
 
 .text-gradient {
@@ -9938,12 +9940,14 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 
-/* floral-arreglo.css */
+/* Estilos para los arreglos florales */
 .floral-arreglo {
   max-width: 280px;
   height: auto;
   opacity: 0.9;
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: -1; /* Envía los arreglos detrás del contenido */
 }
 
 .floral-arreglo:hover {
@@ -9955,5 +9959,14 @@ a.text-dark:hover, a.text-dark:focus {
   position: relative;
   z-index: 1;
   text-align: center;
-  margin: -40px 0;
+}
+
+.floral-arrangement-top {
+  top: -50px;
+  margin-bottom: -100px;
+}
+
+.floral-arrangement-bottom {
+  bottom: -50px;
+  margin-top: -100px;
 }
