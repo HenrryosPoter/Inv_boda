@@ -9981,3 +9981,39 @@ a.text-dark:hover, a.text-dark:focus {
   bottom: -50px;
   margin-bottom: -100px;
 }
+
+/* Añade esto al final de tu archivo CSS */
+.floral-arrangement-top, .floral-arrangement-bottom {
+  position: relative;
+  z-index: 1;
+  isolation: isolate; /* Crea nuevo contexto de apilamiento */
+}
+
+img[src*="arreglo-1.png"] {
+  position: absolute;
+  z-index: -1; /* Coloca detrás del contenido */
+  max-width: 250px;
+  opacity: 0.8;
+  /* Ajustes de posicionamiento específico */
+}
+
+.floral-arrangement-top img[src*="arreglo-1.png"] {
+  top: -20px;
+  left: 5%;
+  transform: rotate(-15deg);
+}
+
+.floral-arrangement-bottom img[src*="arreglo-1.png"] {
+  bottom: -20px;
+  right: 5%;
+  transform: rotate(15deg);
+}
+
+.story-section {
+  position: relative;
+  z-index: 2; /* Capa principal del contenido */
+}
+
+.petals-overlay {
+  z-index: 0 !important; /* Capa más baja */
+}
