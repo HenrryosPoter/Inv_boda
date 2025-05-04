@@ -10017,3 +10017,62 @@ img[src*="arreglo-1.png"] {
 .petals-overlay {
   z-index: 0 !important; /* Capa más baja */
 }
+
+/* Añade esto al final de tu CSS */
+.floral-arrangement-top, 
+.floral-arrangement-bottom {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    transform-style: preserve-3d; /* Crea nuevo contexto 3D */
+}
+
+.floral-arrangement-top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    transform: translateZ(1px); /* Capa detrás del contenido */
+}
+
+.floral-arrangement-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    transform: translateZ(1px);
+}
+
+img[src*="arreglo-1.png"] {
+    position: absolute;
+    max-width: 280px;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.1));
+    /* Posicionamiento específico */
+    &:nth-child(1) {
+        left: 5%;
+        top: -30px;
+        transform: rotate(-15deg) translateZ(0.5px);
+    }
+    &:nth-child(2) {
+        right: 5%;
+        bottom: -30px;
+        transform: rotate(15deg) translateZ(0.5px);
+    }
+}
+
+.story-section {
+    position: relative;
+    z-index: 3; /* Capa principal delante de los arreglos */
+    transform: translateZ(2px); /* Mayor que los arreglos */
+}
+
+.petals-overlay {
+    z-index: 1;
+    transform: translateZ(0); /* Capa más baja */
+}
+
+.speech-bubble {
+    z-index: 4;
+    transform: translateZ(3px); /* Máxima prioridad */
+}
