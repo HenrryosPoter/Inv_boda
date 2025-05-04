@@ -9822,11 +9822,13 @@ a.text-dark:hover, a.text-dark:focus {
 /* Estilos CSS avanzados */
 .story-section {
   background: linear-gradient(45deg, #fff5f5 0%, #f8f9fa 100%);
-  padding: 100px 0; /* Aumentado para dar espacio a los arreglos florales */
+  padding: 150px 0; /* Aumentado para dar espacio a los arreglos florales */
   position: relative;
   overflow: visible; /* Permite que los elementos se salgan del contenedor */
   z-index: 1;
   isolation: isolate; /* Crea nuevo stacking context */
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .text-gradient {
@@ -9834,6 +9836,9 @@ a.text-dark:hover, a.text-dark:focus {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  margin-top: 30px !important;
+  position: relative;
+  z-index: 3;
 }
 
 .vintage-frame {
@@ -9843,6 +9848,7 @@ a.text-dark:hover, a.text-dark:focus {
   border-radius: 15px;
   transform: rotate(-2deg);
   box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+  z-index: 3;
 }
 
 .vintage-frame::after {
@@ -9862,7 +9868,7 @@ a.text-dark:hover, a.text-dark:focus {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  z-index: 3; /* Encima de los arreglos florales */
+  z-index: 5; /* Encima de los arreglos florales */
 }
 
 .groom-speech {
@@ -9885,6 +9891,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .intermediate-section {
   padding: 4rem 0;
+  position: relative;
+  z-index: 3;
 }
 
 .intermediate-image {
@@ -9956,30 +9964,35 @@ a.text-dark:hover, a.text-dark:focus {
 
 .floral-arrangement-top, 
 .floral-arrangement-bottom {
-  position: relative;
-  z-index: 2; /* Mayor que el contenido pero menor que el navbar */
+  position: absolute;
+  width: 100%;
+  z-index: 1; /* Detrás del contenido principal */
   text-align: center;
   pointer-events: none;
 }
 
 .floral-arrangement-top {
-  top: -50px;
+  top: -80px;
   margin-bottom: -100px;
 }
 
 .floral-arrangement-bottom {
-  bottom: -50px;
+  bottom: -80px;
   margin-top: -100px;
 }
 
 .floral-arrangement-top .floral-arreglo {
   top: -50px;
   margin-top: -100px;
+  max-width: 280px;
+  opacity: 0.8;
 }
 
 .floral-arrangement-bottom .floral-arreglo {
   bottom: -50px;
   margin-bottom: -100px;
+  max-width: 280px;
+  opacity: 0.8;
 }
 
 /* Añade esto al final de tu archivo CSS */
