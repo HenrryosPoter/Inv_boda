@@ -9829,6 +9829,7 @@ a.text-dark:hover, a.text-dark:focus {
   isolation: isolate; /* Crea nuevo stacking context */
   margin-top: 50px;
   margin-bottom: 50px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.05);
 }
 
 .text-gradient {
@@ -9966,9 +9967,10 @@ a.text-dark:hover, a.text-dark:focus {
 .floral-arrangement-bottom {
   position: absolute;
   width: 100%;
-  z-index: 1; /* Detrás del contenido principal */
+  z-index: 0; /* Detrás del contenido principal */
   text-align: center;
   pointer-events: none;
+  overflow: visible;
 }
 
 .floral-arrangement-top {
@@ -9998,7 +10000,7 @@ a.text-dark:hover, a.text-dark:focus {
 /* Añade esto al final de tu archivo CSS */
 .floral-arrangement-top, .floral-arrangement-bottom {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   isolation: isolate; /* Crea nuevo contexto de apilamiento */
 }
 
@@ -10007,6 +10009,7 @@ img[src*="arreglo-1.png"] {
   z-index: -1; /* Coloca detrás del contenido */
   max-width: 250px;
   opacity: 0.8;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
   /* Ajustes de posicionamiento específico */
 }
 
@@ -10028,60 +10031,87 @@ img[src*="arreglo-1.png"] {
 }
 
 .petals-overlay {
-  z-index: 0 !important; /* Capa más baja */
+  z-index: -1 !important; /* Capa más baja */
 }
 
-/* Añade esto al final de tu CSS */
+/* Posicionamiento mejorado de elementos decorativos */
 .floral-arrangement-top, 
 .floral-arrangement-bottom {
     position: absolute;
-    z-index: 2;
+    z-index: 0;
     pointer-events: none;
-    transform-style: preserve-3d; /* Crea nuevo contexto 3D */
+    width: 100%;
 }
 
 .floral-arrangement-top {
-    top: 0;
+    top: -100px;
     left: 0;
     right: 0;
     height: 150px;
-    transform: translateZ(1px); /* Capa detrás del contenido */
 }
 
 .floral-arrangement-bottom {
-    bottom: 0;
+    bottom: -100px;
     left: 0;
     right: 0;
     height: 170px;
-    transform: translateZ(10px);
 }
 
-img[src*="arreglo-1.png"] {
+.decorative-image {
     position: absolute;
     max-width: 280px;
-    opacity: 0.9;
-    filter: drop-shadow(0 0 5px rgba(0,0,0,0.1));
-    /* Posicionamiento específico */
-    &:nth-child(1) {
-        left: 50%;
-        top: 120px;
-        transform: rotate(0deg) translateZ(0.5px);
-    }
-    &:nth-child(2) {
-        right: 5%;
-        bottom: -30px;
-        transform: rotate(15deg) translateZ(0.5px);
-    }
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+}
+
+.decorative-top-left {
+    top: -50px;
+    left: -30px;
+    transform: rotate(-15deg);
+    max-width: 200px;
+}
+
+.decorative-top-right {
+    top: -40px;
+    right: -20px;
+    transform: rotate(10deg);
+    max-width: 180px;
+}
+
+.decorative-bottom-left {
+    bottom: -60px;
+    left: -20px;
+    transform: rotate(5deg);
+    max-width: 220px;
+}
+
+.decorative-bottom-right {
+    bottom: -50px;
+    right: -30px;
+    transform: rotate(-10deg);
+    max-width: 200px;
 }
 
 
 
 .petals-overlay {
-    z-index: 1;
-    transform: translateZ(0); /* Capa más baja */
+    z-index: -1;
+    pointer-events: none;
 }
 
 .speech-bubble {
-    z-index: 4;
-    transform: translateZ(3px); /* Máxima prioridad */
+    position: relative;
+    z-index: 5; /* Máxima prioridad */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Contenedor principal para asegurar que el contenido esté por encima de los elementos decorativos */
+.content-wrapper {
+    position: relative;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
