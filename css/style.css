@@ -9886,7 +9886,7 @@ a.text-dark:hover, a.text-dark:focus {
   position: absolute;
   width: 120px;
   height: 120px;
-  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="%23ff69b4" d="M12 2C8 2 4 6 4 10c0 8 8 12 8 12s8-4 8-12c0-4-4-8-8-8z"/></svg>') no-repeat;
   opacity: 0.15;
 }
 
@@ -9929,7 +9929,7 @@ a.text-dark:hover, a.text-dark:focus {
   position: absolute;
   width: 15px;
   height: 15px;
-  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="%23ff69b4" d="M12 2C8 2 4 6 4 10c0 8 8 12 8 12s8-4 8-12c0-4-4-8-8-8z"/></svg>') no-repeat;
   animation: fall linear infinite;
 }
 
@@ -9947,6 +9947,62 @@ a.text-dark:hover, a.text-dark:focus {
       margin-bottom: 2rem;
   }
 }
+/* Añadir al elemento padre directo */
+.historia-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+/* Modificar keyframes para mejor rendimiento */
+@keyframes fall {
+  0% { 
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0; 
+  }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { 
+    transform: translate3d(15vw, 110vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.petal {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
 
 
 
+
+
+.floral-arrangement-top, .floral-arrangement-bottom {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.floral-arrangement-top {
+  top: -50px;
+}
+.floral-arrangement-bottom {
+  bottom: -50px;
+}
+
+.floral-arreglo {
+  max-width: 400px; /* Esto fuerza el escalado si la imagen original es más pequeña */
+  /* Agregar: */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.floral-arreglo {
+  /* Agregar: */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+.floral-arrangement-top, .floral-arrangement-bottom {
+  top: -50px; /* Podría salir del contenedor padre */
+  /* Asegurar contenedor padre: */
+  position: relative;
+  min-height: 50px;
+}

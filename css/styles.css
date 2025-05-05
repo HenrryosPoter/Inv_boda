@@ -1,0 +1,19 @@
+.floral-arrangement-top, .floral-arrangement-bottom {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.floral-arrangement-top {
+    top: -50px;
+    transform: rotate(180deg);
+}
+
+.floral-arrangement-bottom {
+    bottom: -50px;
+}
+
+.floral-arreglo {
+    max-width: 300px;
+    opacity: 0.7;
+}
