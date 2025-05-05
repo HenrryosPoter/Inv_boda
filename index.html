@@ -74,13 +74,6 @@
         });
         </script>
 
-<script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-        
-        // Aquí iría el código de envío
-        alert('¡Gracias por confirmar! Te esperamos.');
-    });
-    </script>
 
 
 
@@ -97,7 +90,7 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav ml-auto py-0">
                 <a href="#home" class="nav-item nav-link active">Inicio</a>
-                <a href="#about" class="nav-item nav-link">Sobre</a>
+                <a href="#our-story" class="nav-item nav-link">Nuestra Historia</a>
          <!--   <a href="#story" class="nav-item nav-link">Historia</a>  -->
                 <a href="#gallery" class="nav-item nav-link">Galeria</a>
             </div>
@@ -105,7 +98,7 @@
                 <h1 class="font-secondary text-white mb-n2">Freddy <span class="text-primary">&</span> Marcela</h1>
             </a>
             <div class="navbar-nav mr-auto py-0">
-                <a href="#family" class="nav-item nav-link">Familia</a>
+         <!--   <a href="#family" class="nav-item nav-link">Familia</a>  -->
                 <a href="#event" class="nav-item nav-link">Evento</a>
                 <a href="#rsvp" class="nav-item nav-link">RSVP</a>
                 <a href="#contact" class="nav-item nav-link">Contactos</a>
@@ -344,6 +337,12 @@
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-7.jpg" alt="">
+                <a href="img/gallery-7.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
         </div>
     </div>
     <!-- Gallery End -->
@@ -498,63 +497,66 @@
     <!-- Friends & Family End -->
 
 
-    <!-- RSVP Start -->
-    <div class="container-fluid py-5" id="rsvp">
-        <div class="container py-5">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">RSVP</h6>
-                <h1 class="font-secondary display-4">Asiste a la Fiesta</h1>
-                <i class="far fa-heart text-dark"></i>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="text-center">
-                       
-                        <form action="https://formspree.io/f/xdkgavvr" method="POST" class="needs-validation" novalidate> <!-- 👈¡Aquí! -->
-                           
-                           
-                           
-                           
-                           
-                           
-                            <div class="form-row">
-                                <div class="form-group col-sm-6">
-                                    <input type="text" class="form-control bg-secondary border-0 py-4 px-3" name="nombre" placeholder="Tu nombre"> <!-- ✅ name añadido -->
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <input type="email" class="form-control bg-secondary border-0 py-4 px-3" name="email" placeholder="Tu correo"> <!-- ✅ name añadido -->
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-sm-6">
-                                    <select class="form-control bg-secondary border-0" name="num_invitados" style="height: 52px;"> <!-- ✅ name añadido -->
-                                        <option>Numero de Invitados</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <select class="form-control bg-secondary border-0" name="asistencia" style="height: 52px;"> <!-- ✅ name añadido -->
-                                        <option value="Asistiré">Asistiré</option> <!-- ✅ Añade value -->
-                                        <option value="No asistiré">No asistiré</option>
-                                   <!-- <option>Wedding Party</option> -->
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control bg-secondary border-0 py-2 px-3" name="mensaje" rows="5" placeholder="Mensaje (opcional)"></textarea> <!-- ✅ name añadido -->
-                            </div>
-                            <div>
-                                <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Enviar</button>
-                            </div>
-                        </form>
+   
+<!-- RSVP Start -->
+<div class="container-fluid py-5" id="rsvp">
+    <div class="container py-5">
+        <div class="section-title position-relative text-center">
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">RSVP</h6>
+            <h1 class="font-secondary display-4">Asiste a la Fiesta</h1>
+            <i class="far fa-heart text-dark"></i>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form action="https://formspree.io/f/xdkgavvr" method="POST" 
+                      class="needs-validation" novalidate id="rsvpForm">
+                    <input type="hidden" name="_gotcha" style="display:none !important">
+                    <input type="hidden" name="_next" value="/gracias.html">
+                    
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <input type="text" class="form-control" name="nombre" 
+                                   placeholder="Tu nombre" required>
+                            <div class="invalid-feedback">Por favor ingrese su nombre</div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <input type="email" class="form-control" name="email" 
+                                   placeholder="Tu correo" required>
+                            <div class="invalid-feedback">Ingrese un correo válido</div>
+                        </div>
                     </div>
-                </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <select class="form-control" name="num_invitados" required>
+                                <option value="" disabled selected>Número de Invitados</option>
+                                <option value="1">1 persona</option>
+                                <option value="2">2 personas</option>
+                                <option value="3">3 personas</option>
+                             
+                            </select>
+                            <div class="invalid-feedback">Seleccione número de invitados</div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <select class="form-control" name="asistencia" required>
+                                <option value="si">¡Sí asistiré!</option>
+                                <option value="no">No podré</option>
+                            </select>
+                            <div class="invalid-feedback">Seleccione una opción</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea class="form-control" name="mensaje" rows="3" 
+                                  placeholder="Mensaje (opcional)"></textarea>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>
+                </form>
             </div>
         </div>
     </div>
+</div></qodoArtifact>
     <!-- RSVP End -->
 
 
@@ -602,9 +604,43 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
-    <!-- Antes de cerrar el body -->
+    <!-- Antes de cerrar el body para el formulario-->
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script src="js/main.js"></script>
+
+// Añadir este script antes del cierre de </body>
+<script>
+document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Validación manual
+    if (!this.checkValidity()) {
+        e.stopPropagation();
+        this.classList.add('was-validated');
+        return;
+    }
+
+    // Envío con fetch API
+    fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            alert('¡Confirmación exitosa! Gracias por responder.');
+            this.reset();
+        } else {
+            alert('Error al enviar. Por favor intente nuevamente.');
+        }
+    }).catch(error => {
+        alert('Error de conexión. Por favor verifique su internet.');
+    });
+});
+</script>
+
+
 
 </body>
 
