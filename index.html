@@ -699,62 +699,72 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e) {
 <!-- Mejora Galeria, al final de tu <body>, tras cargar jQuery y owl.carousel.js -->
 
 <script>
-  $(document).ready(function(){
+$(function(){
   var $carousel = $('.gallery-carousel');
   
-  // 1. Configuración Owl Carousel
+  // 1) Inicializa OwlCarousel con callback de inicialización
   $carousel.owlCarousel({
     loop: true,
     margin: 10,
     nav: true,
     dots: false,
     autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    animateIn: 'zoomIn',
+    animateOut: 'fadeOut',
+    navText: [
+      '<i class="fa fa-chevron-left"></i>',
+      '<i class="fa fa-chevron-right"></i>'
+    ],
     responsive: {
-      0:   { items: 1 },
-      576: { items: 2 },
-      768: { items: 3 },
-      992: { items: 4 },
-      1200:{ items: 5 }
+      0:    { items: 1 },
+      576:  { items: 2 },
+      768:  { items: 3 },
+      992:  { items: 4 },
+      1200: { items: 5 }
     },
     onInitialized: function() {
-      cleanClones();
-      initLightbox();
+      // 2) Filtra clones después de inicializar
+      buildCleanAlbum();
     }
   });
 
-  // 2. Función para limpiar clones
-  function cleanClones() {
-    $carousel.find('.owl-item.cloned a').each(function() {
-      $(this).removeAttr('data-lightbox').css('pointer-events', 'none');
-    });
-  }
-
-  // 3. Reinicialización controlada de Lightbox
-  function initLightbox() {
-    if(window.lightbox) {
-      lightbox.destroy();
-    }
-    lightbox = new Lightbox();
-    lightbox.load();
+  // 3) Función para construir el álbum limpio
+  function buildCleanAlbum() {
+    var album = $carousel.find('.owl-item:not(.cloned) a[href]').map(function(){
+      return { 
+        link: this.href, 
+        title: this.getAttribute('data-title') || '' 
+      };
+    }).get();
     
-    // Actualizar solo con elementos no clonados
-    lightbox.album = [];
-    $carousel.find('.owl-item:not(.cloned) a[data-lightbox="gallery"]').each(function() {
-      lightbox.album.push({
-        link: this.href,
-        title: this.title || ''
-      });
+    lightbox.option({
+      albumLabel: 'Image %1 of ' + album.length
     });
+    
+    return album;
   }
 
-  // 4. Eventos de cambio en el carrusel
-  $carousel.on('changed.owl.carousel refreshed.owl.carousel', function(){
-    cleanClones();
-    initLightbox();
-    });
+  // 4) Manejo de clics con índice corregido
+  $carousel.on('click', '.owl-item:not(.cloned) a[href]', function(e){
+    e.preventDefault();
+    
+    var album = buildCleanAlbum();
+    var $originalItems = $carousel.find('.owl-item:not(.cloned) a[href]');
+    var clickedIndex = $originalItems.index(this);
+    
+    lightbox.album = album;
+    lightbox.start(album, clickedIndex);
   });
-  
+
+  // 5) Actualizar al cambiar slides
+  $carousel.on('changed.owl.carousel', function(){
+    buildCleanAlbum();
+  });
+});
 </script>
+
 
 
 <script>
