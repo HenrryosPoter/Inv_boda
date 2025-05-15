@@ -31,7 +31,9 @@
     <!-- Añadir en el head -->
     <link href="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.css" rel="stylesheet">
 
-    
+    <!-- Añadir en el head, Mejora galeria -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 
 
     <meta name="google-site-verification" content="gRFzAC4RV-2civTbsWiXy8VT-WNpt9JCRs48vSlL708" />
@@ -303,43 +305,97 @@
         <div class="owl-carousel gallery-carousel">
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="img/gallery-1.jpg" alt="">
-                <a href="img/gallery-1.jpg" data-lightbox="gallery">
+                <a href="img/gallery-1.jpg" >
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="img/gallery-2.jpg" alt="">
-                <a href="img/gallery-2.jpg" data-lightbox="gallery">
+                <a href="img/gallery-2.jpg" >
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="img/gallery-3.jpg" alt="">
-                <a href="img/gallery-3.jpg" data-lightbox="gallery">
+                <a href="img/gallery-3.jpg" >
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="img/gallery-4.jpg" alt="">
-                <a href="img/gallery-4.jpg" data-lightbox="gallery">
+                <a href="img/gallery-4.jpg" >
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="img/gallery-5.jpg" alt="">
-                <a href="img/gallery-5.jpg" data-lightbox="gallery">
+                <a href="img/gallery-5.jpg" >
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="img/gallery-6.jpg" alt="">
-                <a href="img/gallery-6.jpg" data-lightbox="gallery">
+                <a href="img/gallery-6.jpg" >
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="img/gallery-7.jpg" alt="">
-                <a href="img/gallery-7.jpg" data-lightbox="gallery">
+                <a href="img/gallery-7.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-8.jpg" alt="">
+                <a href="img/gallery-8.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-9.jpg" alt="">
+                <a href="img/gallery-9.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-10.jpg" alt="">
+                <a href="img/gallery-10.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-11.jpg" alt="">
+                <a href="img/gallery-11.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-12.jpg" alt="">
+                <a href="img/gallery-12.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-13.jpg" alt="">
+                <a href="img/gallery-13.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-14.jpg" alt="">
+                <a href="img/gallery-14.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-15.jpg" alt="">
+                <a href="img/gallery-15.jpg" >
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/gallery-16.jpg" alt="">
+                <a href="img/gallery-16.jpg" >
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
@@ -608,7 +664,7 @@
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script src="js/main.js"></script>
 
-// Añadir este script antes del cierre de </body>
+<!--Añadir este script antes del cierre de </body>-->
 <script>
 document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -639,6 +695,71 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     });
 });
 </script>
+
+<!-- Mejora Galeria, al final de tu <body>, tras cargar jQuery y owl.carousel.js -->
+<script>
+  $(function(){
+    var $carousel = $('.gallery-carousel');
+
+    // Inicializa OwlCarousel (igual que antes)
+    $carousel.owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      animateIn: 'zoomIn',
+      animateOut: 'fadeOut',
+      navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+      responsive: {
+        0:   { items: 1 },
+        576: { items: 2 },
+        768: { items: 3 },
+        992: { items: 4 },
+        1200:{ items: 5 }
+      }
+    });
+
+    function setupLightboxAttrs(){
+      // 1) quita cualquier data-lightbox de clones
+      $carousel.find('.owl-item.cloned a').removeAttr('data-lightbox');
+      // 2) añade data-lightbox solo a los originales
+      $carousel.find('.owl-item:not(.cloned) a')
+               .attr('data-lightbox','gallery');
+    }
+
+    // Ejecuta al montar, refrescar o cambiar
+    $carousel.on(
+      'initialized.owl.carousel '+
+      'refreshed.owl.carousel '+
+      'changed.owl.carousel',
+      setupLightboxAttrs
+    );
+  });
+</script>
+<!-- 1) Tu código JS + setupLightboxAttrs (de arriba) -->
+<!-- 2) Ahora sí, carga Lightbox2 -->
+<link  href="path/to/lightbox.css" rel="stylesheet" />
+<script src="path/to/lightbox.js"></script>
+<script>
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true
+  });
+</script>
+<script>
+  lightbox.option({
+    'resizeDuration': 50,   // duración del fade/resize
+    'fadeDuration':   100,   // duración del fade del overlay
+    'wrapAround':    true    // navegación circular
+  });
+</script>
+
+
+
+
 
 
 
